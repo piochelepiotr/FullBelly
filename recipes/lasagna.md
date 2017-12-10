@@ -8,6 +8,6 @@ all
 * flour : 150 : g
 * milk : 40 : cL
 * pasta lasagna : 12 : u
-* Parmesan : 200 : g
+* parmesan : 200 : g
 ## Cooking
 You can handle it.

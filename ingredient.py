@@ -38,4 +38,4 @@ def simplify_ingredients(ingredients):
             ingredients_dict[ingredient.name].quantity = ingredient.quantity + ingredients_dict[ingredient.name].quantity
         else:
             ingredients_dict[ingredient.name] = Ingredient(ingredient.name,ingredient.quantity,ingredient.unit)
-    return [ingredients_dict[name] for name in ingredients_dict]
+    return sorted([ingredients_dict[name] for name in ingredients_dict],key=lambda ingr: ingr.name)

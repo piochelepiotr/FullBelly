@@ -5,7 +5,7 @@ import random
 recipe_folder = "recipes"
 plan_file = "plan.md"
 days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-starchies = ["pasta","rice","quinoa","patatoes"]
+starchies = ["pasta","rice","quinoa","potatoes"]
 
 def next_day(day):
     """returns next day"""

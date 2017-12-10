@@ -55,4 +55,4 @@ def plan_week(number_meals,day,time):
     write_plan(txt)
 
 if __name__ == "__main__":
-    plan_week(10,"Friday","lunch")
+    plan_week(100,"Friday","lunch")
