@@ -24,7 +24,11 @@ class Ingredient:
 
     def __repr__(self):
         """Method to display the ingredient in human readable form."""
-        return "{} : {}{}".format(self.name,self.quantity,self.unit)
+        return "{} : {:0.3f} {}".format(self.name,self.quantity,self.unit)
+
+    def is_starchy(self,starchy):
+        """returns true if the ingredient is some kind of the starchy"""
+        return starchy in self.name
 
 def simplify_ingredients(ingredients):
     """Groups the ingredients by name"""

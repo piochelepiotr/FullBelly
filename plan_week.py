@@ -20,9 +20,14 @@ def generate_meals(recipes,number_meals):
     - never eat pasta two times in a row for instance"""
     n = len(recipes)
     meals = []
+    done_meals = []
+    prev_starchies = []
     for i in range(number_meals):
-        j = random.randint(0,n-1)
+        forbidden_recipes = manage_recipes.recipes_with_starchies(recipes,prev_starchies)
+        j = const.randint_not_in_L(0,n-1,list(set(done_meals + forbidden_recipes)))
         meals.append(list(recipes)[j])
+        #done_meals.append(j)
+        prev_starchies = recipes[list(recipes)[j]].starchies()
     return meals
 
 def shopping_list(recipes, meals):
@@ -44,10 +49,10 @@ def plan_week(number_meals,day,time):
     txt = ""
     for i in range(number_meals):
         txt += "# " + day + " " + time + "\n"
-        txt += meals[i] + "\n"
+        txt += meals[i] + "\n\n"
         day,time = const.next_lunch(day,time)
-    txt += "\n" + shopping_list(recipes,meals)
+    txt += shopping_list(recipes,meals)
     write_plan(txt)
 
 if __name__ == "__main__":
-    plan_week(3,"Friday","lunch")
+    plan_week(10,"Friday","lunch")

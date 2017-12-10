@@ -13,7 +13,7 @@ class Recipe:
         """Will initialize a recipe with the file filename"""
         with open(const.recipe_folder + os.sep + filename,"r") as f:
             try:
-                self.name = f.readline().strip().replace("#","")
+                self.name = f.readline().replace("#","").strip()
                 self.period = f.readline()
                 line = f.readline()
                 self.ingredients = []
@@ -35,3 +35,18 @@ class Recipe:
             s += str(ing) + "\n"
         s += self.recipe
         return s
+
+    def has_starchy(self,starchy):
+        """returns true if starchy is one of the ingredients"""
+        for ingr in self.ingredients:
+            if ingr.is_starchy(starchy):
+                return True
+        return False
+
+    def starchies(self):
+        """returns a list of the starchies in the recipe"""
+        L = []
+        for starchy in const.starchies:
+            if self.has_starchy(starchy):
+                L.append(starchy)
+        return L
