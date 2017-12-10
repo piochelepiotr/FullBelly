@@ -9,5 +9,6 @@ def load_recipes():
     put them in a dict"""
     recipes = {}
     for filename in os.listdir(const.recipe_folder):
-        recipes[filename] = Recipe(filename)
+        recipe = Recipe(filename)
+        recipes[recipe.name] = recipe
     return recipes
