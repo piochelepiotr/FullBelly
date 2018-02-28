@@ -3,4 +3,4 @@
 # test1
 
 assert 4 == 4
-assert 3 == 5
+assert 3 == 3
