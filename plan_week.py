@@ -26,7 +26,7 @@ def generate_meals(recipes,number_meals):
         forbidden_recipes = manage_recipes.recipes_with_starchies(recipes,prev_starchies)
         j = const.randint_not_in_L(0,n-1,list(set(done_meals + forbidden_recipes)))
         meals.append(list(recipes)[j])
-        #done_meals.append(j)
+        done_meals.append(j)
         prev_starchies = recipes[list(recipes)[j]].starchies()
     return meals
 
@@ -55,4 +55,4 @@ def plan_week(number_meals,day,time):
     write_plan(txt)
 
 if __name__ == "__main__":
-    plan_week(100,"Friday","lunch")
+    plan_week(15,"Friday","lunch")
